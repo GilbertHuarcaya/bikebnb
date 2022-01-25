@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :bikes, through: :rentals, dependent: :destroy
   has_one_attached :photo
 
-  validates :firstname, :lastname, :phonenumber, :city, presence: true
+  validates :firstname, :lastname, :phone_number, :city, presence: true
 end
