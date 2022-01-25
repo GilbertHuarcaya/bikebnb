@@ -1,6 +1,6 @@
 class Bike < ApplicationRecord
   belongs_to :user
-  has_many :rentals
+  has_many :rentals, dependent: :destroy
   has_one_attached :photo
 
   validates :description, :model, :price, presence: true
