@@ -1,0 +1,12 @@
+
+  <div class="container">
+    <h1><%= @bike.model %></h1>
+    <ul>
+    <li><%= @bike.description %></li>
+    <li><%= @bike.price %></li>
+    </ul>
+  </div>
+
+  <div>
+  <%= link_to "Delete", @bike.destroy %>
+  </div>
