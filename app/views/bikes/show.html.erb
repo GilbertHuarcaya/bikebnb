@@ -8,5 +8,6 @@
   </div>
 
   <div>
-  <%= link_to "Delete", @bike.destroy %>
+  <%= link_to "Delete", bike_path(@bike), method: :delete
+   %>
   </div>
