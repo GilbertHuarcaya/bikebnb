@@ -8,8 +8,8 @@
     <% @bikes.each do |bike| %>
       <div class="co-12 colsm-6 col-md-4 mb-3">
         <%= link_to bike_path(bike), class:'text-decoration-none' do %>
-          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= bike.photo.attached? ? cl_image_path(bike.photo.key) : asset_path('list_background.jpg') %>)">
-            <%= bike.name %>
+          <%# <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= bike.photo.attached? ? cl_image_path(bike.photo.key) : asset_path('list_background.jpg') %>
+            <%= bike.model %>
           </div>
         <% end %>
       </div>
