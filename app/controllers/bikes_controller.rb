@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:show, :destroy]
+  before_action :set_bike, only: [:show, :destroy, :edit]
 
   def index
     @bikes = Bike.all
@@ -25,6 +25,15 @@ class BikesController < ApplicationController
   def destroy
     @bike.destroy
     redirect_to bikes_path
+  end
+
+  def edit
+
+  end
+
+  def update
+    @bike.update(bike_params)
+    redirect_to bike_path(@bike)
   end
 
   private
