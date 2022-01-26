@@ -1,11 +1,12 @@
+<%= render "shared/navbar" %>
 <div class="col-12 col-sm-6">
   <h3>Rental history</h3>
-  <% if @bike.rentals.empty? %>
-    <small><em class="text-muted">Be the first one to review this list</em></small>
+  <% if current_user.rentals.empty? %>
+    <small><em class="text-muted">You haven't rented a bike yet</em></small>
   <% end %>
-  <% @bike.rentals.each do |rental| %>
+  <% current_user.rentals.each do |rental| %>
     <div>
-    <span>Rent done by <%= rental.user.firstname %></span>
+    <span>Rent done</span>
       <small><em class="text-muted"><%= distance_of_time_in_words_to_now(rental.created_at) %> ago</em></small>
       </div>
     <hr>
