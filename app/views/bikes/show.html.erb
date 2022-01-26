@@ -28,7 +28,7 @@
     <div class="col-12 col-sm-6">
       <h3>Rental history</h3>
       <% if @bike.rentals.empty? %>
-        <small><em class="text-muted">Be the first one to review this list</em></small>
+        <small><em class="text-muted">Be the first rent a bike</em></small>
       <% end %>
       <% @bike.rentals.each do |rental| %>
         <div>
