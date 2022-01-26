@@ -1,0 +1,4 @@
+<h1><%= @rental.user.name %></h1> <p> -By : <%= @rental.bike.model %></p>
+<%= @rental.bike.description %>
+<h3>$<%= @rental.bike.price %></h3>
+<%= cl_image_tag @rental.bike.photo.key, height: 300, crop: :fill %>

@@ -10,7 +10,7 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def create?
-    user != record.user
+    return true
   end
 
   def update?
