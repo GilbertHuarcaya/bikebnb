@@ -1,7 +1,12 @@
 <%= render "shared/navbar" %>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">RENT BIKES</h3>
+    <h3 class="mb-0">MY BIKES</h3>
+    <% if user_signed_in? %>
+    <% if policy(@bikes).create? %>
+      <%= link_to "Create a bike to rent", new_bike_path, class: "btn btn-flat" %>
+    <% end %>
+    <% end %>
   </div>
   <div class="row">
     <% @bikes.each do |bike| %>

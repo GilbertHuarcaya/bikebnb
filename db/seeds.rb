@@ -10,6 +10,6 @@ User.destroy_all
 
 user = User.create(
   email: "bike@gmail.com", password: "123456", password_confirmation: "123456",
-  firstname: "prueba", lastname: "prueba2", city: "lima", phone_number: "123456789",
+  firstname: "prueba", lastname: "prueba2", city: "lima", phone_number: "123456789", admin: true,
 )
 Bike.create(model: "superbike 1", description: "buena bike 2 ", price: 12, user_id: user.id)
