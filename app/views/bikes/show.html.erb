@@ -16,3 +16,9 @@
   <% end %>
   <%= link_to "Back", root_path, class: "btn btn-flat" %>
   </div>
+
+<% if @bike.available %>
+ <%= link_to "Alquilar", edit_bike_rental_path(@bike), class: "btn btn-primary" %>
+<% else   %>
+<div class="btn btn-primary" disabled ></div>
+<% end  %>
