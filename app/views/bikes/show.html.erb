@@ -13,7 +13,7 @@
   </div>
   </div>
   <div >
-    <h1><%= @bike.model.upcase %></h1> <p> -By : <%= current_user.firstname %></p>
+    <h1><%= @bike.model.upcase %></h1> <p> -By : <%= @bike.user.firstname %></p>
 
     <%= @bike.description %>
     <h3>$<%= @bike.price %></h3>
@@ -39,6 +39,7 @@
       <% end %>
     </div>
     <% end %>
+<% if @bike.user != current_user %>
       <% if @bike.available %>
     <div class="col-12 col-sm-6">
       <div class="bg-white rounded p-3">
@@ -51,6 +52,7 @@
   <% else %>
       <div class="btn btn-primary" disabled >Rent</div>
   <% end %>
+<% end %>
   </div>
 </div>
 
