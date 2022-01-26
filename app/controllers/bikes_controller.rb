@@ -16,6 +16,7 @@ class BikesController < ApplicationController
   end
 
   def show
+    @rental = Rental.new(bike: @bike)
     authorize @bike
   end
 
