@@ -1,10 +1,11 @@
 <%= render "shared/navbar" %>
   <div class="container">
-    <h1><%= @bike.model %></h1>
-    <ul>
-    <li><%= @bike.description %></li>
-    <li><%= @bike.price %></li>
-    </ul>
+    <h1><%= @bike.model.upcase %></h1> <p> -By : <%=  current_user.firstname %></p>
+
+    <%= @bike.description %>
+    <h3>$<%= @bike.price %></h3>
+    <%= cl_image_tag @bike.photo.key, height: 300, crop: :fill %>
+
   </div>
 
   <div>
