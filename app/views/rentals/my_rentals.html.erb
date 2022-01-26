@@ -1,0 +1,13 @@
+<div class="col-12 col-sm-6">
+  <h3>Rental history</h3>
+  <% if @bike.rentals.empty? %>
+    <small><em class="text-muted">Be the first one to review this list</em></small>
+  <% end %>
+  <% @bike.rentals.each do |rental| %>
+    <div>
+    <span>Rent done by <%= rental.user.firstname %></span>
+      <small><em class="text-muted"><%= distance_of_time_in_words_to_now(rental.created_at) %> ago</em></small>
+      </div>
+    <hr>
+  <% end %>
+</div>

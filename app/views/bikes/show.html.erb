@@ -1,5 +1,5 @@
 <%= render "shared/navbar" %>
-  <div class="container">
+<div class="container">
 
   <div class="d-flex justify-content-between my-4">
   <%= link_to "Back", root_path, class: "btn btn-flat" %>
@@ -18,10 +18,40 @@
     <%= @bike.description %>
     <h3>$<%= @bike.price %></h3>
     <%= cl_image_tag @bike.photo.key, height: 300, crop: :fill %>
-    <% if @bike.available %>
-      <%= link_to "Alquilar", edit_bike_rental_path(@bike), class: "btn btn-primary" %>
-    <% else %>
-      <div class="btn btn-primary" disabled ></div>
+
+  </div>
+<div>
+
+    <hr class="my-5">
+  <div class="row">
+  <% if policy(@bike).destroy? %>
+    <div class="col-12 col-sm-6">
+      <h3>Rental history</h3>
+      <% if @bike.rentals.empty? %>
+        <small><em class="text-muted">Be the first one to review this list</em></small>
+      <% end %>
+      <% @bike.rentals.each do |rental| %>
+        <div>
+        <span>Rent done by <%= rental.user.firstname %></span>
+          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(rental.created_at) %> ago</em></small>
+        </div>
+        <hr>
+      <% end %>
+    </div>
     <% end %>
+      <% if @bike.available %>
+    <div class="col-12 col-sm-6">
+      <div class="bg-white rounded p-3">
+        <h5>Rent</h5>
+        <%= simple_form_for [@bike, @rental] do |f| %>
+          <%= f.submit class: "btn btn-gradient" %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+      <div class="btn btn-primary" disabled >Rent</div>
+  <% end %>
   </div>
-  </div>
+</div>
+
+</div>

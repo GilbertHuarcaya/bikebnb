@@ -22,7 +22,7 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     authorize @rental
     @rental.save
-    redirect_to rental_path(@rental)
+    redirect_to bike_path(@bike)
   end
 
   def destroy
