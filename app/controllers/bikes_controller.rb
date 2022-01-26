@@ -1,6 +1,5 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :update, :destroy, :edit]
-  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, except: [:index]
   include Pundit
 
@@ -54,14 +53,6 @@ class BikesController < ApplicationController
     authorize @bike
     @bike.update(bike_params)
     redirect_to bike_path(@bike)
-  end
-
-  def configure_permitted_parameters
-    # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :phone_number, :city, :photo])
-
-    # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:firstname, :lastname, :phone_number, :city, :photo])
   end
 
   # Pundit: white-list approach.
