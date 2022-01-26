@@ -1,4 +1,11 @@
 <%= render "shared/navbar" %>
+<div class="banner">
+  <div class="container">
+    <h1>Bike BnB - Alquiler de Bicicletas</h1>
+    <p>Movilizarce por la ciudad nunca fue tan facil</p>
+    <%= link_to 'Alquilar', bikes_path , class: "btn btn-success" %>
+  </div>
+</div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">RENT BIKES</h3>
@@ -6,6 +13,9 @@
 
   <div class="cards">
     <% @bikes.each do |bike| %>
+
+
+
     <%= link_to bike_path(bike), class: "text-decoration-none" do %>
     <div class="card-trip">
       <%= cl_image_tag bike.photo.key, height: 250, width: 350, crop: :fill %>
@@ -14,11 +24,10 @@
           <h2 class="text-decoration-none"><%= bike.model %> - $<%= bike.price %></i></h2>
           <p class="text-decoration-none"><%= bike.description %></p>
         </div>
+
       </div>
     </div>
     <% end %>
     <% end %>
   </div>
-
-
 </div>
