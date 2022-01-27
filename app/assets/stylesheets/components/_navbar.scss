@@ -1,14 +1,21 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-
 }
 
-.navbar p{
- color: #EA6460;
- margin:auto;
- font-size: 25px;
+.navbar-lewagon-white {
+  background-color: white;
+}
 
+.fixed-only-home {
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+}
+
+.navbar p {
+  color: #ea6460;
+  margin: auto;
+  font-size: 25px;
 }
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -17,12 +24,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 50px;
   margin-left: 10px;
-  display:flex;
+  display: flex;
   margin-right: 20px;
 }
-.navbar-lewagon .navbar-brand  {
-  display:flex;
-
+.navbar-lewagon .navbar-brand {
+  display: flex;
 }
 
 .card-category {
@@ -35,9 +41,9 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .banner {
@@ -49,7 +55,7 @@
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 32px;
   font-weight: bold;
 }
@@ -57,8 +63,8 @@
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  opacity: 0.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .cards {
@@ -103,8 +109,8 @@
 }
 
 .btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: #4a4a4a;
+  border: 1px solid #4a4a4a;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
@@ -120,12 +126,12 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: #1edd88;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #1BCB7F;
+  background: #1bcb7f;
   color: white;
 }
 
@@ -134,12 +140,12 @@
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bold;
-  background: linear-gradient(#167FFB, #0F60C4);
+  background: linear-gradient(#167ffb, #0f60c4);
   transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
+  border: 1px solid #0f60c4;
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
+  background: linear-gradient(#147eff, #0f67da);
   color: white;
 }

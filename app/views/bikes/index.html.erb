@@ -1,11 +1,12 @@
-<%= render "shared/navbar" %>
+<%= render "shared/navbarfixed" %>
 <div class="banner">
+<div class="container bg-transparent">
   <div class="card-index">
     <h1>Bike BnB • Alquiler de Bicicletas</h1>
     <p>Movilizarce por la ciudad nunca fue tan facil</p>
-   <h3><%= link_to 'Alquilar', bikes_path , class: "btn " %></h3>
+    <h3><%= link_to "Alquilar", bikes_path, class: "btn " %></h3>
   </div>
-
+ </div>
 </div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
@@ -15,7 +16,7 @@
   <div class="cards">
     <% @bikes.each do |bike| %>
 
-    <%= link_to bike_path(bike), class: "text-decoration-none" do %>
+    <%= link_to bike_path(bike) do %>
     <div class="card-trip">
       <%= cl_image_tag bike.photo.key, height: 250, width: 350, crop: :fill %>
       <div class="card-trip-infos">
@@ -23,11 +24,13 @@
           <h2 class="text-decoration-none"><%= bike.model %> - </h2>
           <p class="text-decoration-none"><%= bike.description.capitalize %></p>
         </div>
-         <h3> $<%= bike.price %></i><small> /por día</small></h3>
+        <h3> $<%= bike.price %></i><small> /por día</small></h3>
 
-           </div>
+        </div>
     </div>
     <% end %>
     <% end %>
   </div>
+      <hr>
+<div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>"></div>
 </div>

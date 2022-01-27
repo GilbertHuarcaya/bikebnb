@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
     authorize @rental
     @rental.save
     @bike.update({ available: false })
-    redirect_to bike_path(@bike)
+    redirect_to my_rentals_rentals_path
   end
 
   def destroy
@@ -52,7 +52,7 @@ class RentalsController < ApplicationController
     authorize @rental
     @bike.update({ available: true })
     @rental.update({ completed: true })
-    redirect_to my_rentals_rentals_path
+    redirect_to my_bikes_bikes_path
   end
 
   # Pundit: white-list approach.
