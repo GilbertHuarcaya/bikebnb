@@ -1,31 +1,31 @@
 <%= render "shared/navbar" %>
 <div class="banner">
-  <div class="container">
-    <h1>Bike BnB - Alquiler de Bicicletas</h1>
+  <div class="card-index">
+    <h1>Bike BnB • Alquiler de Bicicletas</h1>
     <p>Movilizarce por la ciudad nunca fue tan facil</p>
-    <%= link_to 'Alquilar', bikes_path , class: "btn btn-success" %>
+   <h3><%= link_to 'Alquilar', bikes_path , class: "btn " %></h3>
   </div>
+
 </div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">RENT BIKES</h3>
+    <h2 class="mb-0"><strong> Elije tu Bicicleta!</strong></h3>
   </div>
 
   <div class="cards">
     <% @bikes.each do |bike| %>
-
-
 
     <%= link_to bike_path(bike), class: "text-decoration-none" do %>
     <div class="card-trip">
       <%= cl_image_tag bike.photo.key, height: 250, width: 350, crop: :fill %>
       <div class="card-trip-infos">
         <div class="text-decoration-none">
-          <h2 class="text-decoration-none"><%= bike.model %> - $<%= bike.price %></i></h2>
-          <p class="text-decoration-none"><%= bike.description %></p>
+          <h2 class="text-decoration-none"><%= bike.model %> - </h2>
+          <p class="text-decoration-none"><%= bike.description.capitalize %></p>
         </div>
+         <h3> $<%= bike.price %></i><small> /por día</small></h3>
 
-      </div>
+           </div>
     </div>
     <% end %>
     <% end %>
