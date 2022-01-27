@@ -19,6 +19,7 @@ class BikesController < ApplicationController
   def show
     @rental = Rental.new(bike: @bike)
     authorize @bike
+    set_marker
   end
 
   def my_bikes
@@ -84,6 +85,18 @@ class BikesController < ApplicationController
   end
 
   def set_markers
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url(bike.photo.url.gsub(/\b.jfif\b/, ".png")),
+      }
+    end
+  end
+
+  def set_marker
+    @bikes = Bike.all.where(id: @bike.id)
     @markers = @bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,

@@ -1,6 +1,6 @@
 <%= render "shared/navbar" %>
 <div class="backgroundcolor-vista">
-  <div class="container py-5">
+  <div class="container py-5 bg-transparent h-100">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h3 class="mb-0">MY BIKES</h3>
       <% if user_signed_in? %>
@@ -27,5 +27,3 @@
   </div>
 
 </div>
-
-<div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>"></div>

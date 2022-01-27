@@ -18,7 +18,7 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def complete?
-    user == record.user || user.admin
+    return true
   end
 
   def destroy?

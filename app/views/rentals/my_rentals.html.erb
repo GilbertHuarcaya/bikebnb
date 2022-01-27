@@ -1,6 +1,6 @@
 <%= render "shared/navbar" %>
-<div class="container">
-  <h3>Rental history</h3>
+<div class="container py-5">
+  <h3>RENTALS HISTORY</h3>
   <% if current_user.rentals.empty? %>
     <small><em class="text-muted">You haven't rented a bike yet</em></small>
   <% end %>
@@ -16,13 +16,12 @@
   <div>
       <%= link_to "View", bike_path(rental.bike), class: "text-decoration-none" %>
 
-      <% if policy(@rentals).update? && rental.declined == false %>
+      <% if policy(@rentals).update? && rental.declined == false && rental.completed == false %>
         <%= link_to "Decline", edit_rental_path(rental), class: "btn btn-cancel", data: { confirm: "Are you sure you want to decline this rental?" } %>
       <% end %>
 
       <% if policy(@rentals).destroy? %>
-        <%= link_to "Delete", rental_path(rental), method: :delete, class: "btn btn-cancel", data: { confirm: "Are you sure you want to delete this list?" } %>
-        <i class="far fa-trash-alt"></i>
+        <%= link_to "Delete", rental_path(rental), method: :delete, class: "btn btn-cancel", data: { confirm: "Are you sure you want to delete this rental?" } %>
       <% end %>
   </div>
   </div>
@@ -30,30 +29,11 @@
       <% if rental.declined %>
         <p class="alert-danger">DECLINED: <%= rental.declined_comment %></p>
       <% end %>
-  </div>
-
-  </div>
-
-  <div class="notification">
-  <%= cl_image_tag rental.user.photo.key, class: "avatar-large" %>
-  <div class="notification-content">
-    <p><small>Rented <%= distance_of_time_in_words_to_now(rental.created_at) %> ago</small></p>
-    <p>Contact with me by email: <%= rental.user.email %> or phone: <%= rental.user.phone_number %></p>
-  </div>
-
-  <div class="notification-actions">
-      <% if policy(@rentals).update? && rental.declined == false %>
-        <%= link_to "Decline", edit_rental_path(rental), class: "btn btn-cancel", data: { confirm: "Are you sure you want to decline this rental?" } %>
-      <% end %>
-
-      <% if policy(@rentals).destroy? %>
-        <%= link_to "Delete", rental_path(rental), method: :delete, class: "btn btn-cancel", data: { confirm: "Are you sure you want to delete this list?" } %>
-        <i class="far fa-trash-alt"></i>
+      <% if rental.completed %>
+        <p class="alert-success">COMPLETED</p>
       <% end %>
   </div>
-  <% if rental.declined %>
-      <p class="alert-danger">DECLINED</p>
-  <% end %>
-</div>
+
+  </div>
   <% end %>
 </div>

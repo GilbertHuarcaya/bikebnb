@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :rentals, only: [:destroy, :show, :update, :edit] do
     collection do
       get :my_rentals
-      patch :complete
+      patch "/:id/complete", to: "rentals#complete", as: "complete"
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

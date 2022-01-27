@@ -39,37 +39,35 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  width: 420px;
+  width: 100%;
+  &-infos{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 img {
   height: 100%;
-  width: 200px;
+  width: auto;
   object-fit: cover;
 }
 h2{
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 0;
-  padding-bottom: 58px;
 }
 p{
-  padding-top: 40px;
   font-size: 16px;
-  font-weight: bold;
   margin: 0;
-  text-decoration: underline;
 }
 h3{
-  padding-top: 57px;
-  padding-left: 70px;
   font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
 }
-.card-product-show .card-product-infos {
-  padding: 16px;
-}
+
 .card-trip{
   overflow: hidden;
   background: white;
@@ -77,7 +75,7 @@ h3{
   border-radius: 12px;
   background-size: cover;
   height: 285px;
-  width: 360px;
+  width: 100%;
 
 }
 
