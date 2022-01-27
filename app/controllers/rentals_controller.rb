@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [:show, :update, :destroy]
+  before_action :set_rental, only: [:show, :update, :destroy, :complete, :edit]
   before_action :authenticate_user!
   include Pundit
 
@@ -22,24 +22,37 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     authorize @rental
     @rental.save
+    @bike.update({ available: false })
     redirect_to bike_path(@bike)
   end
 
   def destroy
+    @bike = Bike.find(@rental[:bike_id])
     authorize @rental
+    @bike.update({ available: true })
     @rental.destroy
-    redirect_to rental_path(@rental.bike)
+    redirect_to my_rentals_rentals_path
+  end
+
+  def edit
+    authorize @rental
   end
 
   def update
+    @bike = Bike.find(@rental[:bike_id])
     authorize @rental
-    if @rental.available == true
-      @rental.available = false
-    else
-      @rental.available = true
-    end
-    @rental.update
-    redirect_to rental_path(@rental)
+    @bike.update({ available: true })
+    @rental.update({ declined: true })
+    @rental.update(rental_params)
+    redirect_to my_rentals_rentals_path
+  end
+
+  def complete
+    @bike = Bike.find(@rental[:bike_id])
+    authorize @rental
+    @bike.update({ available: true })
+    @rental.update({ completed: true })
+    redirect_to my_rentals_rentals_path
   end
 
   # Pundit: white-list approach.
@@ -59,11 +72,11 @@ class RentalsController < ApplicationController
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-  def set_bike
+  def set_rental
     @rental = Rental.find(params[:id])
   end
 
   def rental_params
-    params.require(:rental).permit(:comment, :rating)
+    params.require(:rental).permit(:declined_comment)
   end
 end
