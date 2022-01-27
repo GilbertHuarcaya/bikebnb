@@ -14,19 +14,128 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: .9;
   margin-bottom: 0;
   margin-top: 8px;
+  overflow-wrap: break-word;
 }
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product-show{
+  overflow: hidden;
+  height: 250px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  width: 420px;
+img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+}
+h2{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 58px;
+}
+p{
+  padding-top: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-decoration: underline;
+}
+h3{
+  padding-top: 57px;
+  padding-left: 70px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+}
+.card-product-show .card-product-infos {
+  padding: 16px;
+}
+.card-trip{
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  background-size: cover;
+  height: 285px;
+  width: 360px;
+
+}
+
+.card-trip:hover {
+  background-color:rgb(243, 243, 243)
+
+}
+.card-trip > img {
+  max-height: 200px;
+  width: 100%;
+  transition:all 0.6s ease;
+}
+.card-trip > img:hover {
+  transform:scale(1.1,1.1);
+  transition:all 0.6s ease;
+  opacity: 0.9;
+
+}
+
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: black;
+  text-transform: uppercase;
+
+}
+
+.card-trip h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: black;
+
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0px;
+  height: 32px;
+  width: 200px;
+  overflow: hidden;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
