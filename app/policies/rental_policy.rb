@@ -14,7 +14,11 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner_or_admin?
+    return true
+  end
+
+  def complete?
+    user == record.user || user.admin
   end
 
   def destroy?

@@ -7,11 +7,12 @@ Rails.application.routes.draw do
       get :top
       get :my_bikes
     end
-    resources :rentals, except: [:destroy, :index]
+    resources :rentals, only: [:create]
   end
-  resources :rentals, only: [:destroy] do
+  resources :rentals, only: [:destroy, :show, :update, :edit] do
     collection do
       get :my_rentals
+      patch :complete
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
