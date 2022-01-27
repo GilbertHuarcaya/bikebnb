@@ -1,8 +1,83 @@
-<div class="container py-5">
-  <div class="row">
+
+
+<body class="profile-page">
+<div class=" my-4">
+  <%= link_to "Back", root_path, class: "btn btn-flat" %>
+  <div>
+<div class="profile-info">
+<% if current_user.photo.key != nil %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "profile-avatar", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% elsif current_user.photo.key == nil %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "profile-avatar", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "My rentals", my_rentals_rentals_path, class: "dropdown-item" %>
+            <%= link_to "My bikes", my_bikes_bikes_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+
+</div>
+    <div class="main main-raised">
+						<div class="row">
+
+					<div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile-tabs">
+
+                          <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                  <i class="material-icons">camera</i>
+                                  Perfil
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+                                  <i class="material-icons">palette</i>
+                                    Bicicletas
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                                  <i class="material-icons">favorite</i>
+                                    Editar
+                                </a>
+                            </li>
+                          </ul>
+                        </div>
+    	    	</div>
+            </div>
+
+          <div class="tab-content tab-space">
+            <div class="tab-pane active text-center gallery" id="studio">
+  				<div class="row">
+  					<div class="col-md-3 ml-auto">
+  					    <%= current_user.firstname.capitalize %>
+
+  					</div>
+  					<div class="col-md-3 mr-auto">
+  						<img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=72da2f550f8cbd0ec252ad6fb89c96b2&auto=format&fit=crop&w=334&q=80" class="rounded">
+
+  					</div>
+  				</div>
+  			</div>
+            <div class="tab-pane text-center gallery" id="works">
+      			<div class="row">
+      				<div class="col-md-3 ml-auto">
+                      <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded">
+  					  <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80" class="rounded">
+  					  					</div>
+      				<div class="col-md-3 mr-auto">
+                      <img src="https://images.unsplash.com/photo-1504346466600-714572c4b726?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6754ded479383b7e3144de310fa88277&auto=format&fit=crop&w=750&q=80" class="rounded">
+
+      				</div>
+      			</div>
+  			</div>
+            <div class="tab-pane " id="favorite">
+      			<div class="container ">
+             <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edita tus datos <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -53,3 +128,14 @@
     </div>
   </div>
 </div>
+
+</body>
+
+      			</div>
+      	  	</div>
+          </div>
+
+
+
+        </div>
+	</div>
