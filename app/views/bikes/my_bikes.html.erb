@@ -1,29 +1,32 @@
-<%= render "shared/navbar" %>
+<%= render 'shared/navbar' %>
 <div class="backgroundcolor-vista">
   <div class="container py-5 bg-transparent h-100">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h3 class="mb-0">MY BIKES</h3>
       <% if user_signed_in? %>
-      <% if policy(@bikes).create? %>
-        <%= link_to "Create a bike to rent", new_bike_path, class: "btn btn-flat" %>
-      <% end %>
+        <% if policy(@bikes).create? %>
+          <%= link_to 'Create a bike to rent', new_bike_path, class: 'btn btn-flat' %>
+        <% end %>
       <% end %>
     </div>
     <div class="row">
       <% @bikes.each do |bike| %>
         <div class="co-12 col-sm-6 col-md-4 mb-3">
           <%= link_to bike_path(bike), class: "text-decoration-none" do %>
-          <% if bike.photo.key != nil %>
-            <div class="card-category hover-efect" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bike.photo.key, height: 300, crop: :fill %>')">
+            <% if bike.photo.key != nil %>
+              <div
+                class="card-category hover-efect"
+                data-aos="zoom-in"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('[object Object]')"
+              >
+                <%= bike.model %>
+              </div>
+            <% elsif bike.photo.key == nil %>
               <%= bike.model %>
-            </div>
-          <% elsif bike.photo.key == nil %>
-              <%= bike.model %>
-          <% end %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
     </div>
   </div>
-
 </div>
