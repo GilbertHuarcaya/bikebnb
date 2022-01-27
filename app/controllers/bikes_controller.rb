@@ -13,6 +13,7 @@ class BikesController < ApplicationController
     else
       @bikes = policy_scope(Bike).where.not(user: current_user).order(created_at: :desc)
     end
+    set_markers
   end
 
   def show
@@ -22,6 +23,7 @@ class BikesController < ApplicationController
 
   def my_bikes
     @bikes = policy_scope(Bike).where(user: current_user).order(created_at: :desc)
+    set_markers
   end
 
   def new
@@ -78,6 +80,17 @@ class BikesController < ApplicationController
   end
 
   def bike_params
-    params.require(:bike).permit(:description, :model, :price, :photo, :user)
+    params.require(:bike).permit(:description, :model, :price, :photo, :user, :address)
+  end
+
+  def set_markers
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url(bike.photo.url.gsub(/\b.jfif\b/, ".png")),
+      }
+    end
   end
 end
