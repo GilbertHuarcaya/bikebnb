@@ -1,21 +1,56 @@
+.container{
+  background-color: #B7CADE;
+}
+body{
+  background-color: #B7CADE;
+}
+
 .banner {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1610651218119-cd161e98b319?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80);
-  background-size: cover;
-  background-position: center;
+  background-color: #F9EDD3;
+  background-image:  url(https://images.unsplash.com/photo-1643296649881-71f8cee5a3bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1317&q=80);
+
+background-position: left top, right top;
+height: 600PX;
   padding: 150px 0;
 }
 
+.banner .card-index{
+ margin-right: auto;
+            margin-left: 90px;
+            width: 500px;
+            box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+            height: 330px;
+            border-radius: 12px;
+            backdrop-filter: blur(14px);
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 50px;
+            text-align: center;
+}
+
+.banner .card-index .btn{
+background-color: #EA6460;
+width: 100px;
+height: 40px;
+border-radius: 10px;
+}
+.banner .card-index .btn:hover{
+background-color: #000000;
+color:white
+}
+
+
 .banner h1 {
   margin: 0;
-  color: white;
+  color: #050505;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 42px;
+  font-weight: bolder;
 }
 
 .banner p {
   font-size: 20px;
-  color: #ffe501;;
+  color: #4D5A67;;
   opacity: .9;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-top: 20px;
 }
