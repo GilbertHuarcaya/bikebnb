@@ -3,6 +3,15 @@
   background: white;
 }
 
+.navbar-lewagon-white {
+  background-color: white;
+}
+
+.fixed-only-home {
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+}
+
 .navbar p {
   color: #ea6460;
   margin: auto;
