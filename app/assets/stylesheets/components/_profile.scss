@@ -1,0 +1,72 @@
+.nav-pills .nav-item .nav-link {
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 100px;
+  color: #555;
+  transition: all 0.3s;
+  border-radius: 30px;
+  padding: 10px 15px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.nav-pills .nav-item i {
+  display: block;
+  font-size: 30px;
+  padding: 15px 0;
+}
+//forma botones
+.nav-pills.nav-pills-icons .nav-item .nav-link {
+  border-radius: 4px;
+}
+.nav {
+  margin-top: 100px;
+}
+.profile-page {
+  background-color: rgb(255, 255, 255);
+}
+.profile-page .gallery {
+  margin-top: 3.213rem;
+  padding-bottom: 50px;
+}
+
+.profile-page .gallery img {
+  width: 100%;
+  margin-bottom: 2.142rem;
+}
+//botones
+.nav-pills .nav-item .nav-link.active {
+  color: #fff;
+  background-color: #ea6460;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2),
+    0 13px 24px -11px rgba(156, 39, 176, 0.6);
+  margin-top: 15px;
+}
+
+//cardcontainer
+.main-raised {
+  margin: 10px 100px 30px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  background-color: #b7cade;
+}
+
+.profile-page .page-header {
+  height: 100px;
+  background-position: center;
+}
+//
+.profile-info {
+  height: 100px;
+  width: 350px;
+  text-align: center;
+  transition: 0.3s;
+  margin: auto;
+}
+
+#profile-avatar {
+  height: 200px;
+  width: 200px;
+}
