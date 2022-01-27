@@ -51,7 +51,7 @@
 
     <hr class="my-5">
   <% if policy(@bike).destroy? %>
-      <h3>People who want to rent you bike</h3>
+      <h3>People who want to rent your bike</h3>
       <% if @bike.rentals.empty? %>
         <small><em class="text-muted">Your bike has not been rented yet</em></small>
       <% end %>
