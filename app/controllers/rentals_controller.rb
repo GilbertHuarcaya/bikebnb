@@ -44,7 +44,11 @@ class RentalsController < ApplicationController
     @bike.update({ available: true })
     @rental.update({ declined: true })
     @rental.update(rental_params)
-    redirect_to my_rentals_rentals_path
+    if current_user != @bike.user
+      redirect_to my_rentals_rentals_path
+    else
+    redirect_to bike_path(@bike)
+    end
   end
 
   def complete
@@ -77,6 +81,6 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:declined_comment)
+    params.permit(:declined_comment)
   end
 end
