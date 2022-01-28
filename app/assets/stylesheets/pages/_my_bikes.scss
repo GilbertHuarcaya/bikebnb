@@ -1,25 +1,27 @@
-.backgroundcolor-vista {
-  width: 100%;
-  height: 100%;
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  background-size: 300% 300%;
-  background-image: linear-gradient(
-        -45deg,
-        #1572A1 0%,
-        #9AD0EC 25%,
-        #cce5ff 51%,
-        #B7CADE 100%
-  );
-  animation: AnimateBG 20s ease infinite;
-}
+// se quito este efecto de background-color
+// .backgroundcolor-vista {
+//   // margin-top: 82px;
+//   // width: 100%;
+//   // height: 100vh;
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// //   background-size: 300% 300%;
+// //   background-image: linear-gradient(
+// //         -45deg,
+// //         #1572A1 0%,
+// //         #9AD0EC 25%,
+// //         #EFDAD7 51%,
+// //         #E3BEC6 100%
+// //   );
+// //   animation: AnimateBG 20s ease infinite;
+// // }
 
-@keyframes AnimateBG {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
+// // @keyframes AnimateBG {
+// //   0%{background-position:0% 50%}
+// //   50%{background-position:100% 50%}
+// //   100%{background-position:0% 50%}
+// }
 
 .hover-efect {
  opacity: 0.7;

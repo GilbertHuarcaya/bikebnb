@@ -1,59 +1,65 @@
-
-
-
-
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :firstname,
-                required: true,
-                autofocus: true %>
-    <%= f.input :lastname,
-                required: true,
-                autofocus: true %>
-    <%= f.input :phone_number,
-                required: true,
-                autofocus: true %>
-    <%= f.input :city,
-                required: true,
-                autofocus: true %>
-    <%= f.input :photo,
-                required: false %>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+<div class="container">
+  <%= link_to "Home", root_path, class: "btn btn-flat" %>
+  <div class="profile-info">
+    <% if current_user.photo.key != nil %>
+      <%= cl_image_tag current_user.photo.key,
+                       class: "avatar dropdown-toggle",
+                       id: "profile-avatar",
+                       data: {
+                         toggle: "dropdown",
+                       },
+                       'aria-haspopup': true,
+                       'aria-expanded': false %>
+    <% elsif current_user.photo.key == nil %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",
+                    class: "avatar dropdown-toggle",
+                    id: "profile-avatar",
+                    data: {
+                      toggle: "dropdown",
+                    },
+                    'aria-haspopup': true,
+                    'aria-expanded': false %>
     <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="profile-tabs">
+    <ul
+      class="nav nav-pills nav-pills-icons justify-content-center"
+      role="tablist"
+    >
+      <li class="nav-item">
+        <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+          <i class="material-icons">camera</i>
+          Perfil
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+          <i class="material-icons">palette</i>
+          Bicicletas
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+          <i class="material-icons">favorite</i>
+          Editar
+        </a>
+      </li>
+    </ul>
   </div>
-<% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-<%= link_to "Back", :back %>
-      </div>
+  <div class="tab-content tab-space">
+    <div class="tab-pane active text-center gallery" id="studio">
+      <p><%= current_user.firstname.capitalize %></p>
+      <p><%= current_user.lastname.capitalize %></p>
+      <p><%= current_user.email %></p>
+      <p><%= current_user.city.capitalize %></p>
+    </div>
+    <div class="tab-pane text-center gallery" id="works">
+      <%= link_to "My bikes", my_bikes_bikes_path, class: "btn btn-gradient" %>
+    </div>
+    <div class="tab-pane " id="favorite">
+      <%= render "form" %>
     </div>
   </div>
 </div>

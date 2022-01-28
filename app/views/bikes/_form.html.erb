@@ -1,36 +1,38 @@
-  <div class="view" style="background-image: url('https://images.unsplash.com/photo-1618674054359-088b66494a9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1254&q=80'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-
-   <div class="container py-5 bg-image" >
-
-
-
+<div
+  class="view"
+  style="background-image: url('https://images.unsplash.com/photo-1618674054359-088b66494a9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1254&q=80'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
+>
+  <div class="container py-5 bg-image">
     <div class="col-12 col-md-6 offset-lg-3 ">
-
       <div class="bg-white rounded p-3 shadow">
-        <div class="card-category form" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1505582866941-6788e0205dd2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)">
-        </div>
+        <div
+          class="card-category form"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1505582866941-6788e0205dd2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)"
+        ></div>
         <br />
 
         <h3>¡Create a new bike!</h3>
         <%= simple_form_for @bike do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <%= f.error_notification %>
+          <%=
+            if f.object.errors[:base].present?
+              f.error_notification message: f.object.errors[:base].to_sentence
+            end
+          %>
 
-        <div class="form-inputs form1">
-          <%= f.input :description ,
-                       placeholder:'Esta es mi bicleta'%>
-          <%= f.input :model ,
-                       placeholder:'Esta es el modelo'%>
-          <%= f.input :price ,
-                       placeholder:'80$'%>
-          <%= f.input :photo %>
-          <%= f.input :address %>
-        </div>
+          <div class="form-inputs form1">
+            <%= f.input :description, placeholder: 'Esta es mi bicleta' %>
+            <%= f.input :model, placeholder: 'Esta es el modelo' %>
+            <%= f.input :price, placeholder: '80$' %>
+            <%= f.input :photo %>
+            <%= f.input :address %>
+          </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, class: "btn btn-flat" %>
-        </div>
-      <% end %>
+          <div class="form-actions">
+            <%= f.button :submit, class: 'btn btn-flat' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
