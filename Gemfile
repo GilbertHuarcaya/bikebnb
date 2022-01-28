@@ -7,6 +7,7 @@ gem "devise"
 gem "cloudinary", "~> 1.16.0"
 gem "pundit"
 gem 'geocoder'
+gem "pg_search", "~> 2.3.0"
 gem 'elasticsearch', "< 7.14" # to use a supported version of the Elasticsearch Ruby client
 gem 'searchkick', '~> 4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
