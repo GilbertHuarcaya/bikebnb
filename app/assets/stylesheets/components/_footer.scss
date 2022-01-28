@@ -14,14 +14,13 @@
   align-items: center;
 }
 .footer-links a {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
+  color: #cecdcd;
+    text-decoration: none;
+  font-size: 29px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
-  opacity: 1;
+  color: #ea6460;
 }
 .footer .fa-heart {
   color: #d23333;
@@ -31,4 +30,9 @@
   .footer {
     padding: 0px 50px;
   }
+}
+
+.footer-copyright h2{
+font-family: 'Caveat', cursive;
+font-size: 30px;
 }

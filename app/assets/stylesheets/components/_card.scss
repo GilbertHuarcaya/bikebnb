@@ -84,7 +84,9 @@
   height: 285px;
   width: 100%;
 }
-
+.cards {
+  grid-gap: 30px;
+}
 .card-trip:hover {
   background-color: rgb(243, 243, 243);
 }
@@ -121,6 +123,7 @@
   height: 32px;
   width: 200px;
   overflow: hidden;
+  color: #ea6460;
 }
 
 .card-trip .card-trip-infos {

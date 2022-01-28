@@ -41,12 +41,30 @@ body {
   color: white;
 }
 
-h1 {
+.card-index h1 {
   margin: 0;
-  color: #050505;
+  color: #ea6460;
+  font-size: 80px;
+  font-weight: bolder;
+  font-family: 'Caveat', cursive;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.card-index h2{
+ margin: 0;
+  color: #050505;
   font-size: 2rem;
   font-weight: bolder;
+
+}
+
+.card-index p{
+ font-size: 16px;
+  color: #4d5a67;
+  opacity: 0.9;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
 }
 
 p {
