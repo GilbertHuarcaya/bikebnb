@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get :top
       get :my_bikes
+      get :search
     end
     resources :rentals, only: [:create]
   end
