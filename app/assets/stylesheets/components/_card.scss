@@ -78,7 +78,9 @@ h3{
   width: 100%;
 
 }
-
+.cards{
+  grid-gap: 30px;
+}
 .card-trip:hover {
   background-color:rgb(243, 243, 243)
 
@@ -115,11 +117,11 @@ h3{
 
 .card-trip p {
   font-size: 12px;
-  opacity: .7;
   margin: 0px;
   height: 32px;
   width: 200px;
   overflow: hidden;
+  color: #ea6460;
 }
 
 
