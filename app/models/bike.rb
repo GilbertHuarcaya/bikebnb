@@ -1,5 +1,4 @@
 class Bike < ApplicationRecord
-  searchkick
   belongs_to :user
   has_many :rentals, dependent: :destroy
   has_one_attached :photo
@@ -11,4 +10,11 @@ class Bike < ApplicationRecord
   validates :user, presence: true
   validates :photo, presence: true
   validates :address, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_address,
+                  against: [:address],
+                  using: {
+                    tsearch: { prefix: true },
+                  }
 end

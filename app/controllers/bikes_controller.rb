@@ -17,9 +17,8 @@ class BikesController < ApplicationController
   end
 
   def search
-    Bike.reindex
     if params[:query].present?
-      @bikes = Bike.search(params[:query])
+      @bikes = Bike.search_by_address(params[:query])
       set_markers_search
     else
       @bikes = Bike.all
@@ -108,8 +107,7 @@ class BikesController < ApplicationController
   end
 
   def set_markers_search
-    @results = Bike.where(id: @bikes.results.map(&:id))
-    @markers = @results.geocoded.map do |bike|
+    @markers = @bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,
         lng: bike.longitude,
