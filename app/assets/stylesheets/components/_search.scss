@@ -1,0 +1,32 @@
+.search-bar {
+  padding-top: 90px;
+  width: 100%;
+  form {
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+  }
+  .input {
+    width: 450px;
+  }
+  p {
+    text-align: center;
+  }
+}
+.resultados {
+  height: 100%;
+
+  .resultado {
+    margin: 0;
+    border-radius: 5px;
+    img {
+      padding: 10px;
+      border-radius: 5px;
+      width: 300px;
+    }
+    .text-decoration-none {
+      color: black;
+    }
+  }
+
+}

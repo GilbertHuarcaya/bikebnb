@@ -1,0 +1,65 @@
+<%= render "shared/navbar" %>
+
+<div class="search-bar">
+<h3> Search bikes near you </h3>
+<%= form_tag search_bikes_path, method: :get, class: "d-flex w-100" do %>
+
+<div class="input">
+  <%= text_field_tag :query,
+                     params[:query],
+                     class: "form-control",
+                     placeholder: "Find a bike" %>
+</div>
+<div class="button">
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+</div>
+
+<% end %>
+  <p><%= @bikes.size %>resultados</p>
+</div>
+  <div class="row resultados">
+    <div class="col-12 col-sm-6">
+      <% if @bikes.empty? %>
+        <small><em class="text-muted">Be the first one to result this list</em></small>
+      <% end %>
+      <% @bikes.each do |bike| %>
+      <%= link_to bike_path(bike) do %>
+  <div class="card-product-show resultado">
+    <%= cl_image_tag bike.photo.key, height: 200, crop: :fill %>
+    <div class="card-product-show-infos w-100 p-2">
+      <div class="d-flex justify-content-between h-fit text-decoration-none">
+        <h2 class="text-decoration-none"><%= bike.model.upcase %></h2>
+        <% if bike.user != current_user %>
+          <% if bike.available %>
+            <p class="text-decoration-none alert-success">Available</p>
+          <% else %>
+            <div class="btn btn-secondary" disabled>Rent</div>
+          <% end %>
+        <% end %>
+      </div>
+      <p class="text-decoration-none"><%= bike.description %></p>
+
+      <div class="d-flex justify-content-between align-middle">
+        <h3 class="text-decoration-none">-Owner : <%= bike.user.firstname %></h3>
+
+        <h3 class="text-decoration-none">$<%= bike.price %>/dia</h3>
+      </div>
+    </div>
+  </div>
+  <% end %>
+        <hr>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class="bg-white mapa rounded p-3">
+
+    <div
+    id="map"
+    style="width: 100%; height: 600px"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
+    </div>
+      </div>
+    </div>
+  </div>
+<br>
