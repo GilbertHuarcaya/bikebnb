@@ -25,12 +25,12 @@
           <%= cl_image_tag bike.photo.key, height: 250, width: 350, crop: :fill %>
           <div class="card-trip-infos">
             <div class="text-decoration-none">
-              <h2 class="text-decoration-none"><%= bike.model %> -</h2>
+              <h2 class="text-decoration-none"><%= truncate bike.model, length: 30, separator: /\w+/ %> -</h2>
               <p class="text-decoration-none">
-                <%= bike.description.capitalize %>
+                <%= truncate bike.description.capitalize, length: 30, separator: /\w+/ %>
               </p>
             </div>
-            <h3>$<%= bike.price %><small> /por día</small></h3>
+            <h3>$<%= bike.price %><small>/day</small></h3>
           </div>
         </div>
       <% end %>
