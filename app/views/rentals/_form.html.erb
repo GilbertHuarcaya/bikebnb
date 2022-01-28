@@ -1,24 +1,24 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
+<div class="container ">
+  <div class="row w-100">
+    <div class="col-12 col-md-6 offset-lg-3 m-auto">
+    <h1>Why do you want to decline?</h1>
       <div class="bg-white rounded p-3 shadow">
         <%= simple_form_for @rental do |f| %>
           <%= f.error_notification %>
-          <%=
-            if f.object.errors[:base].present?
-              f.error_notification message: f.object.errors[:base].to_sentence
-            end
-          %>
+          <%= if f.object.errors[:base].present?
+                f.error_notification message: f.object.errors[:base].to_sentence
+              end %>
 
           <div class="form-inputs">
             <%= f.input :declined_comment %>
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, class: 'btn btn-flat', value: 'Decline' %>
+            <%= f.button :submit, class: "btn btn-flat", value: "Decline" %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
+  <%= link_to "Back", root_path, class: "btn btn-flat" %>
 </div>
