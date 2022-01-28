@@ -1,11 +1,13 @@
 <%= render "shared/navbar" %>
 <div class="container">
+<% if @bike.user != current_user %>
   <div
-    class="card-category"
+    class="card-category px-3"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1620744349823-6dd4f93f46e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80)"
   >
     Do you like this bike? Rent it!
   </div>
+  <% end %>
   <div class="d-flex justify-content-between my-4">
     <div>
       <% if policy(@bike).destroy? %>
@@ -23,9 +25,9 @@
     </div>
   </div>
 
-  <div class="card-product-show">
+  <div class="card-product-show cards-show ">
     <%= cl_image_tag @bike.photo.key, height: 200, crop: :fill %>
-    <div class="card-product-show-infos w-100 p-2">
+    <div class="card-product-show-infos info-show w-100 p-2">
       <div class="d-flex justify-content-between h-fit">
         <h2><%= @bike.model.upcase %></h2>
         <% if @bike.user != current_user %>
@@ -34,7 +36,7 @@
               <%= f.submit class: "btn btn-gradient", value: "Rent" %>
             <% end %>
           <% else %>
-            <div class="btn btn-secondary" disabled>Rent</div>
+            <div class="btn btn-secondary" disabled>Rented</div>
           <% end %>
         <% end %>
       </div>
@@ -51,13 +53,13 @@
     <hr />
     <div
     id="map"
-    style="width: 100%; height: 600px"
+    style="width: 100%; min-height: 200px; height: 60vh"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
     </div>
   <% end %>
   <div>
-    <hr class="my-5" />
+    <br class="my-5" />
     <% if policy(@bike).destroy? %>
       <h3>People who want to rent your bike</h3>
       <% if @bike.rentals.empty? %>
@@ -118,7 +120,7 @@
         </div>
 
       <% end %>
-      <hr />
+      <br>
       </div>
     <% end %>
   </div>

@@ -18,10 +18,10 @@ class BikesController < ApplicationController
 
   def search
     if params[:query].present?
-      @bikes = Bike.search_by_address(params[:query])
+      @bikes = Bike.search_by_address(params[:query]).where.not(user: current_user)
       set_markers_search
     else
-      @bikes = Bike.all
+      @bikes = Bike.all.where.not(user: current_user)
       set_markers
     end
     authorize @bikes

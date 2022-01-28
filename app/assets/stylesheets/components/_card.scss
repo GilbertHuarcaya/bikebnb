@@ -2,7 +2,7 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
 }
@@ -22,7 +22,7 @@
 .card-product p {
   font-size: 13px;
   line-height: 1.4;
-  opacity: .9;
+  opacity: 0.9;
   margin-bottom: 0;
   margin-top: 8px;
   overflow-wrap: break-word;
@@ -31,72 +31,75 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
-
-.card-product-show{
+.cards-show {
+  flex-wrap: wrap;
+  height: 500px;
+  img {
+    height: auto;
+    width: auto;
+    padding: 10px;
+    border-radius: 5px;
+    object-fit: cover;
+    flex-grow: 1;
+  }
+}
+.card-product-show {
   overflow: hidden;
-  height: 250px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   width: 100%;
-  &-infos{
-    height: 100%;
+  .info-show {
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin: 0;
+    }
+    p {
+      font-size: 16px;
+      margin: 0;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  &-infos {
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-img {
-  height: 100%;
-  width: auto;
-  object-fit: cover;
-}
-h2{
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-}
-p{
-  font-size: 16px;
-  margin: 0;
-}
-h3{
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
 }
 
-.card-trip{
+.card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
   background-size: cover;
   height: 285px;
   width: 100%;
-
 }
-.cards{
+.cards {
   grid-gap: 30px;
 }
 .card-trip:hover {
-  background-color:rgb(243, 243, 243)
-
+  background-color: rgb(243, 243, 243);
 }
 .card-trip > img {
   max-height: 200px;
   width: 100%;
-  transition:all 0.6s ease;
+  transition: all 0.6s ease;
 }
 .card-trip > img:hover {
-  transform:scale(1.1,1.1);
-  transition:all 0.6s ease;
+  transform: scale(1.1, 1.1);
+  transition: all 0.6s ease;
   opacity: 0.9;
-
 }
-
 
 .card-trip h2 {
   font-size: 16px;
@@ -104,7 +107,6 @@ h3{
   margin: 0;
   color: black;
   text-transform: uppercase;
-
 }
 
 .card-trip h3 {
@@ -112,18 +114,17 @@ h3{
   font-weight: bold;
   margin: 0;
   color: black;
-
 }
 
 .card-trip p {
   font-size: 12px;
+  opacity: 0.7;
   margin: 0px;
   height: 32px;
   width: 200px;
   overflow: hidden;
   color: #ea6460;
 }
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -138,4 +139,50 @@ h3{
   right: 16px;
   top: -20px;
   width: 40px;
+}
+@media (min-width: 768px) {
+  .card-product-show {
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .info-show {
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+      }
+      p {
+        font-size: 16px;
+        margin: 0;
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+    &-infos {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 0;
+    }
+  }
+  .cards-show {
+    flex-wrap: nowrap;
+    height: 250px;
+    img {
+      height: 100%;
+      width: 500px;
+      padding: 10px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-grow: 0;
+    }
+  }
 }
