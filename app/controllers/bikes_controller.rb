@@ -16,6 +16,18 @@ class BikesController < ApplicationController
     set_markers
   end
 
+  def search
+    Bike.reindex
+    if params[:query].present?
+      @bikes = Bike.search(params[:query])
+      set_markers_search
+    else
+      @bikes = Bike.all
+      set_markers
+    end
+    authorize @bikes
+  end
+
   def show
     @rental = Rental.new(bike: @bike)
     authorize @bike
@@ -86,6 +98,18 @@ class BikesController < ApplicationController
 
   def set_markers
     @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url(bike.photo.url.gsub(/\b.jfif\b/, ".png")),
+      }
+    end
+  end
+
+  def set_markers_search
+    @results = Bike.where(id: @bikes.results.map(&:id))
+    @markers = @results.geocoded.map do |bike|
       {
         lat: bike.latitude,
         lng: bike.longitude,
